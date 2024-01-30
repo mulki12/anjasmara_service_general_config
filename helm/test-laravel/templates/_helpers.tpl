@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "anjasmara-service-general.name" -}}
+{{- define "test-laravel.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
@@ -11,7 +11,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "anjasmara-service-general.fullname" -}}
+{{- define "test-laravel.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -27,16 +27,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "anjasmara-service-general.chart" -}}
+{{- define "test-laravel.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
 Common labels
 */}}
-{{- define "anjasmara-service-general.labels" -}}
-app.kubernetes.io/name: {{ include "anjasmara-service-general.name" . }}
-helm.sh/chart: {{ include "anjasmara-service-general.chart" . }}
+{{- define "test-laravel.labels" -}}
+app.kubernetes.io/name: {{ include "test-laravel.name" . }}
+helm.sh/chart: {{ include "test-laravel.chart" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
@@ -47,9 +47,9 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "anjasmara-service-general.serviceAccountName" -}}
+{{- define "test-laravel.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create -}}
-    {{ default (include "anjasmara-service-general.fullname" .) .Values.serviceAccount.name }}
+    {{ default (include "test-laravel.fullname" .) .Values.serviceAccount.name }}
 {{- else -}}
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}

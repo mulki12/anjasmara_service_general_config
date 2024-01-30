@@ -2,10 +2,10 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: {{ include "anjasmara-service-general.fullname" . }}
+  name: {{ include "test-laravel.fullname" . }}
   namespace: {{ .Values.namespace  }}
   labels:
-{{ include "anjasmara-service-general.labels" . | indent 4 }}    
+{{ include "test-laravel.labels" . | indent 4 }}    
 spec:
   hosts:
     {{ toYaml .Values.virtualservice.hosts | nindent 4 }}
@@ -22,5 +22,5 @@ spec:
         - destination:
             port:
               number: {{ .Values.virtualservice.port }}
-            host: {{ include "anjasmara-service-general.fullname" . }}
+            host: {{ include "test-laravel.fullname" . }}
 {{- end }}

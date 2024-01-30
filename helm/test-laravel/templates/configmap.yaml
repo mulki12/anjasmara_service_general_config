@@ -1,5 +1,5 @@
-{{- $fullname := include "anjasmara-service-general.fullname" . -}}
-{{- $labels := include "anjasmara-service-general.labels" .  }}
+{{- $fullname := include "test-laravel.fullname" . -}}
+{{- $labels := include "test-laravel.labels" .  }}
 {{- $Files := .Files -}}
 
 {{- range $configmap := .Values.configmaps}}

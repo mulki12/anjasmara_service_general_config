@@ -1,6 +1,6 @@
 {{ if .Values.persistences.enabled }}
-{{- $fullName := include "anjasmara-service-general.fullname" . -}}
-{{- $labels := include "anjasmara-service-general.labels" .  }}
+{{- $fullName := include "test-laravel.fullname" . -}}
+{{- $labels := include "test-laravel.labels" .  }}
 {{- $namespace := .Values.namespace -}}
 {{- range $volumeClaim := .Values.persistences.volumeClaims}}
 {{- if $volumeClaim.create}}

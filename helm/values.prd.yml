@@ -41,7 +41,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
   hosts:
-    - host: anjasmara-service-general.ddb.bri.co.id
+    - host: test-laravel.ddb.bri.co.id
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
